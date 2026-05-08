@@ -1,0 +1,66 @@
+@import "tailwindcss";
+
+:root {
+  --ink:    #080B12;
+  --ink2:   #0F1520;
+  --ink3:   #1A2235;
+  --ink4:   #242E42;
+  --gold:   #E8A020;
+  --gold2:  #F5C842;
+  --gold-d: #9B6A10;
+  --gold-g: rgba(232,160,32,.12);
+  --green:  #0DB87F;
+  --green2: #09C989;
+  --green-g:rgba(13,184,127,.10);
+  --red:    #E8384F;
+  --red-g:  rgba(232,56,79,.10);
+  --blue:   #3B8EEA;
+  --purple: #9B6DE8;
+  --t1: #EFF2F9;
+  --t2: #8B95AA;
+  --t3: #4E5A70;
+  --border: rgba(255,255,255,.07);
+  --border2:rgba(255,255,255,.13);
+  --radius: 14px;
+}
+
+@theme inline {
+  --font-sans: var(--font-space-grotesk), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-fraunces), ui-serif, Georgia, serif;
+  --font-mono: var(--font-jetbrains-mono), ui-monospace, SFMono-Regular, monospace;
+}
+
+body {
+  background: var(--ink);
+  color: var(--t1);
+  min-height: 100vh;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: var(--ink); }
+::-webkit-scrollbar-thumb { background: var(--ink4); border-radius: 3px; }
+
+/* AMBIENT CANVAS */
+.canvas {
+  position: fixed; inset: 0; pointer-events: none; z-index: 0; overflow: hidden;
+}
+.orb { position: absolute; border-radius: 50%; filter: blur(100px); animation: drift 20s ease-in-out infinite; }
+.orb-1 { width: 700px; height: 700px; top: -200px; left: -180px; background: radial-gradient(circle, rgba(232,160,32,.16), transparent 70%); animation-delay: 0s; }
+.orb-2 { width: 500px; height: 500px; top: 400px; right: -120px; background: radial-gradient(circle, rgba(13,184,127,.09), transparent 70%); animation-delay: -7s; }
+.orb-3 { width: 400px; height: 400px; bottom: -80px; left: 40%; background: radial-gradient(circle, rgba(59,142,234,.07), transparent 70%); animation-delay: -14s; }
+
+@keyframes drift { 
+  0%, 100% { transform: translate(0,0); } 
+  33% { transform: translate(30px,-40px); } 
+  66% { transform: translate(-20px,25px); } 
+}
+
+.grain {
+  position: absolute; inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.032'/%3E%3C/svg%3E");
+  opacity: .5;
+}
+
+.page { position: relative; z-index: 1; }
