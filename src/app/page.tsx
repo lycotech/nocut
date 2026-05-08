@@ -6,16 +6,7 @@ export default function Home() {
       {/* NAV */}
       <nav className="flex items-center justify-between px-6 md:px-12 h-[68px] border-b border-[var(--border)] bg-[rgba(8,11,18,0.85)] backdrop-blur-[20px] sticky top-0 z-[100]">
         <div className="flex items-center gap-3">
-          {/* Using the logo provided by the user. Place logo.png in public/ */}
-          <div className="relative w-[140px] h-[40px] flex items-center">
-            <Image
-              src="/logo.png"
-              alt="NoCut.NG Logo"
-              fill
-              className="object-contain object-left"
-              priority
-            />
-          </div>
+          <span className="font-serif font-black text-xl tracking-tight">NOCUT<span className="text-[var(--gold)]">.NG</span></span>
         </div>
         <div className="flex items-center gap-2 md:gap-4">
           <div className="flex items-center gap-2 px-3 py-1 md:px-4 md:py-1.5 rounded-full border border-[rgba(13,184,127,0.3)] bg-[rgba(13,184,127,0.07)] text-[10px] md:text-[11px] text-[var(--green)] font-semibold tracking-wider">
@@ -33,6 +24,17 @@ export default function Home() {
 
       {/* HERO */}
       <main className="flex-1 flex flex-col items-center justify-center px-6 md:px-12 py-20 max-w-[1360px] mx-auto w-full text-center">
+        {/* BIG CENTERED LOGO */}
+        <div className="relative w-[280px] h-[90px] md:w-[400px] md:h-[130px] mb-8">
+          <Image
+            src="/logo.jpeg"
+            alt="NoCut.NG Logo"
+            fill
+            className="object-contain object-center"
+            priority
+          />
+        </div>
+
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-[rgba(232,160,32,0.3)] bg-[rgba(232,160,32,0.07)] font-mono text-[11px] text-[var(--gold)] font-medium tracking-widest uppercase mb-6">
           <span className="w-1.5 h-1.5 rounded-full bg-[var(--gold)]" style={{ animation: "blink 1.6s ease-in-out infinite" }}></span>
           Nigeria's Prediction Market
