@@ -50,8 +50,8 @@ export default function Home() {
           Don't Guess. Take Position.
         </p>
         
-        <p className="text-[15px] text-[var(--t2)] leading-[1.75] max-w-[500px] mx-auto mb-10">
-          Stake <strong>YES</strong> or <strong>NO</strong> on real-world events. 
+        <p className="text-[15px] text-white leading-[1.75] max-w-[500px] mx-auto mb-10">
+          Stake <strong>YES</strong> or <strong>NO</strong>{" "}on real-world events. 
           Every market has a fixed reward pool &mdash; <strong>early stakers earn more</strong>. 
           Get notified the moment we go live.
         </p>
@@ -72,28 +72,28 @@ export default function Home() {
         {/* TRUST ROW */}
         <div className="flex flex-col sm:flex-row justify-center gap-0 border border-[var(--border)] rounded-2xl overflow-hidden max-w-[800px] mx-auto w-full">
           <div className="flex-1 p-4 border-b sm:border-b-0 sm:border-r border-[var(--border)] flex flex-col gap-1 items-center">
-            <div className="font-serif text-lg md:text-xl font-bold text-[var(--t1)]">Fixed Pool</div>
-            <div className="text-[10px] text-[var(--t3)] tracking-wider uppercase">Reward Model</div>
+            <div className="font-serif text-lg md:text-xl font-bold text-white">Fixed Pool</div>
+            <div className="text-[10px] text-white tracking-wider uppercase">Reward Model</div>
           </div>
           <div className="flex-1 p-4 border-b sm:border-b-0 sm:border-r border-[var(--border)] flex flex-col gap-1 items-center">
-            <div className="font-serif text-lg md:text-xl font-bold text-[var(--t1)]">Transparent</div>
-            <div className="text-[10px] text-[var(--t3)] tracking-wider uppercase">Payouts & Odds</div>
+            <div className="font-serif text-lg md:text-xl font-bold text-white">Transparent</div>
+            <div className="text-[10px] text-white tracking-wider uppercase">Payouts & Odds</div>
           </div>
           <div className="flex-1 p-4 flex flex-col gap-1 items-center">
             <div className="font-serif text-lg md:text-xl font-bold text-[var(--green2)]">₦ Native</div>
-            <div className="text-[10px] text-[var(--t3)] tracking-wider uppercase">Zero FX Fees</div>
+            <div className="text-[10px] text-white tracking-wider uppercase">Zero FX Fees</div>
           </div>
         </div>
       </main>
 
       {/* FOOTER */}
       <footer className="px-6 md:px-12 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-[var(--border)] relative z-10">
-        <span className="font-serif text-sm text-[var(--t3)]">
+        <span className="font-serif text-sm text-white">
           © {new Date().getFullYear()} <em className="text-[var(--gold)] not-italic">nocut.ng</em> · Lagos, Nigeria
         </span>
         <div className="flex gap-5">
-          <a href="#" className="text-[11px] text-[var(--t3)] transition-colors hover:text-[var(--t2)] border-none bg-transparent">Twitter</a>
-          <a href="#" className="text-[11px] text-[var(--t3)] transition-colors hover:text-[var(--t2)] border-none bg-transparent">Telegram</a>
+          <a href="#" className="text-[11px] text-white transition-colors hover:text-gray-300 border-none bg-transparent">Twitter</a>
+          <a href="#" className="text-[11px] text-white transition-colors hover:text-gray-300 border-none bg-transparent">Telegram</a>
         </div>
       </footer>
     </div>
