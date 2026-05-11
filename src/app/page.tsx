@@ -39,7 +39,7 @@ export default function Home() {
           <span className="text-[var(--green)]">Now there’s a place to stake on it.</span>
         </h1>
         
-        <p className="font-mono text-sm md:text-base font-medium tracking-[2px] uppercase text-[var(--green)] mb-8">
+        <p className="font-mono text-sm md:text-base font-medium tracking-[2px] uppercase text-white mb-8">
           Pick a Side. YES or NO
         </p>
         
@@ -59,22 +59,6 @@ export default function Home() {
             Claim Your Spot
           </button>
         </form>
-
-        {/* TRUST ROW */}
-        <div className="flex flex-col sm:flex-row justify-center gap-0 border border-[var(--border)] rounded-2xl overflow-hidden max-w-[800px] mx-auto w-full">
-          <div className="flex-1 p-4 border-b sm:border-b-0 sm:border-r border-[var(--border)] flex flex-col gap-1 items-center">
-            <div className="font-serif text-lg md:text-xl font-bold text-white">Fixed Pool</div>
-            <div className="text-[10px] text-white tracking-wider uppercase">Reward Model</div>
-          </div>
-          <div className="flex-1 p-4 border-b sm:border-b-0 sm:border-r border-[var(--border)] flex flex-col gap-1 items-center">
-            <div className="font-serif text-lg md:text-xl font-bold text-white">Transparent</div>
-            <div className="text-[10px] text-white tracking-wider uppercase">Payouts & Odds</div>
-          </div>
-          <div className="flex-1 p-4 flex flex-col gap-1 items-center">
-            <div className="font-serif text-lg md:text-xl font-bold text-[var(--green2)]">₦ Native</div>
-            <div className="text-[10px] text-white tracking-wider uppercase">Zero FX Fees</div>
-          </div>
-        </div>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 max-w-[860px] mx-auto text-left">
           <div className="flex items-start gap-3 p-4 rounded-3xl border border-[var(--border)] bg-[rgba(255,255,255,0.03)]">
@@ -104,7 +88,7 @@ export default function Home() {
       {/* FOOTER */}
       <footer className="px-6 md:px-12 py-6 flex flex-col sm:flex-row justify-between items-center gap-4 border-t border-[var(--border)] relative z-10">
         <span className="font-serif text-sm text-white">
-          © {new Date().getFullYear()} <em className="text-[var(--gold)] not-italic">nocut.ng</em> · Lagos, Nigeria
+          © {new Date().getFullYear()} <em className="text-[var(--green)] not-italic">nocut.ng</em> · Lagos, Nigeria
         </span>
         <div className="flex gap-5">
           <a href="https://x.com/nocutng" target="_blank" rel="noreferrer" className="text-[11px] text-white transition-colors hover:text-gray-300 border-none bg-transparent">X</a>
