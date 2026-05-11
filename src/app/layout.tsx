@@ -23,6 +23,10 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "NoCut.NG — Predict Freely. No Cuts. (Coming Soon)",
   description: "Nigeria already talks about everything. Now there’s a place to stake on it.",
+  icons: {
+    icon: "/logo.jpeg",
+    apple: "/logo.jpeg",
+  },
 };
 
 export default function RootLayout({

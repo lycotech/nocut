@@ -1,4 +1,7 @@
+"use client";
+
 import Image from "next/image";
+import { FormEvent, useState } from "react";
 
 export default function Home() {
   return (
@@ -48,17 +51,7 @@ export default function Home() {
         </p>
         
         {/* WAITLIST FORM */}
-        <form className="flex flex-col sm:flex-row gap-3 w-full max-w-[520px] mx-auto mb-16">
-          <input 
-            type="email" 
-            placeholder="Enter your email address" 
-            className="flex-1 px-4 py-3.5 rounded-xl border border-[var(--border2)] bg-[rgba(255,255,255,0.03)] text-[15px] text-[var(--t1)] outline-none focus:border-[var(--green)] transition-colors"
-            required
-          />
-          <button type="submit" className="px-8 py-3.5 rounded-xl border-none bg-[var(--green)] text-[#08090F] text-[15px] font-bold font-serif tracking-wide transition-all shadow-[0_6px_32px_rgba(13,184,127,0.35)] hover:bg-[var(--green2)] hover:shadow-[0_8px_44px_rgba(13,184,127,0.55)] hover:-translate-y-[2px]">
-            Claim Your Spot
-          </button>
-        </form>
+        <SubscriptionForm />
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-10 max-w-[860px] mx-auto text-left">
           <div className="flex items-start gap-3 p-4 rounded-3xl border border-[var(--border)] bg-[rgba(255,255,255,0.03)]">
@@ -96,5 +89,63 @@ export default function Home() {
         </div>
       </footer>
     </div>
+  );
+}
+
+function SubscriptionForm() {
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [message, setMessage] = useState("");
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    setStatus("sending");
+    setMessage("");
+
+    try {
+      const response = await fetch("/api/subscribe", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email }),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result?.message || "Unable to submit email.");
+      }
+
+      setStatus("success");
+      setMessage("Thanks! We'll notify you when we launch.");
+      setEmail("");
+    } catch (error) {
+      setStatus("error");
+      setMessage(error instanceof Error ? error.message : "Submission failed.");
+    }
+  }
+
+  return (
+    <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 w-full max-w-[520px] mx-auto mb-16">
+      <input
+        type="email"
+        value={email}
+        onChange={(event) => setEmail(event.target.value)}
+        placeholder="Enter your email address"
+        className="flex-1 px-4 py-3.5 rounded-xl border border-[var(--border2)] bg-[rgba(255,255,255,0.03)] text-[15px] text-[var(--t1)] outline-none focus:border-[var(--green)] transition-colors"
+        required
+      />
+      <button
+        type="submit"
+        disabled={status === "sending"}
+        className="px-8 py-3.5 rounded-xl border-none bg-[var(--green)] text-[#08090F] text-[15px] font-bold font-serif tracking-wide transition-all shadow-[0_6px_32px_rgba(13,184,127,0.35)] hover:bg-[var(--green2)] hover:shadow-[0_8px_44px_rgba(13,184,127,0.55)] hover:-translate-y-[2px] disabled:cursor-not-allowed disabled:opacity-60"
+      >
+        {status === "sending" ? "Sending..." : "Claim Your Spot"}
+      </button>
+      {message ? (
+        <div className={`mt-3 text-sm ${status === "success" ? "text-[var(--green)]" : "text-[var(--red)]"}`}>
+          {message}
+        </div>
+      ) : null}
+    </form>
   );
 }
