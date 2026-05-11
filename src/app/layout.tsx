@@ -22,7 +22,7 @@ const jetbrainsMono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: "NoCut.NG — Predict Freely. No Cuts. (Coming Soon)",
-  description: "Don't Guess. Take Position. Nigeria's Prediction Market.",
+  description: "Nigeria already talks about everything. Now there’s a place to stake on it.",
 };
 
 export default function RootLayout({
